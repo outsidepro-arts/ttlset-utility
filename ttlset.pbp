@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://www.purebasic.com/namespace" version="1.0" creator="PureBasic 5.71 LTS (Windows - x64)">
+  <section name="config">
+    <options closefiles="1" openmode="0" name="TTL Set utility"/>
+  </section>
+  <section name="data">
+    <explorer view="..\..\..\PB\" pattern="0"/>
+    <log show="1"/>
+    <lastopen date="2021-12-20 01:59" user="denis" host="OUTSIDEPRO-PC"/>
+  </section>
+  <section name="files">
+    <file name="modules\Registry Module.pb">
+      <config load="0" scan="1" panel="0" warn="1" lastopen="1"/>
+      <fingerprint md5="ebcf85c010eb4f016b997fa6bb940bba"/>
+    </file>
+    <file name="sources\ttlset.pb">
+      <config load="1" scan="1" panel="1" warn="1" lastopen="1" panelstate="++"/>
+      <fingerprint md5="55d0f326d2847e7ade5261dc2b8a0b72"/>
+    </file>
+  </section>
+  <section name="targets">
+    <target name="Target X86" enabled="1" default="0">
+      <inputfile value="sources\ttlset.pb"/>
+      <outputfile value="bin\ttlset32.exe"/>
+      <compiler version="PureBasic 5.71 LTS (Windows - x86)"/>
+      <executable value="ttlset32.exe"/>
+      <options xpskin="1" admin="1" debug="1"/>
+      <buildcount enable="1" value="3"/>
+      <versioninfo enable="1">
+        <field0 value="1,%BUILDCOUNT,0,0"/>
+        <field1 value="1,%BUILDCOUNT,0,0"/>
+        <field2 value="Outsidepro Arts"/>
+        <field3 value="TTL Set Utility"/>
+        <field4 value="V1.%BUILDCOUNT"/>
+        <field5 value="V1,%BUILDCOUNT"/>
+        <field6 value="TTL Set utility"/>
+        <field7 value="ttlset"/>
+        <field8 value="ttlset32.exe"/>
+        <field9 value="Copyright (C), 2021"/>
+        <field10 value="Outsidepro arts"/>
+        <field13 value="denis.outsidepro@gmail.com"/>
+        <field14 value="https://github.com/outsidepro-arts/"/>
+        <field15 value="VOS_NT_WINDOWS32"/>
+        <field16 value="VFT_APP"/>
+      </versioninfo>
+      <constants>
+        <constant value="#Proj_Version" enable="1"/>
+      </constants>
+    </target>
+    <target name="Target X64" enabled="1" default="1">
+      <inputfile value="sources\ttlset.pb"/>
+      <outputfile value="bin\ttlset64.exe"/>
+      <compiler version="PureBasic 5.71 LTS (Windows - x64)"/>
+      <executable value="ttlset64.exe"/>
+      <options xpskin="1" admin="1"/>
+      <buildcount enable="1" value="3"/>
+      <versioninfo enable="1">
+        <field0 value="1,%BUILDCOUNT,0,0"/>
+        <field1 value="1,%BUILDCOUNT,0,0"/>
+        <field2 value="Outsidepro Arts"/>
+        <field3 value="TTL Set Utility"/>
+        <field4 value="V1.%BUILDCOUNT"/>
+        <field5 value="V1,%BUILDCOUNT"/>
+        <field6 value="TTL Set utility"/>
+        <field7 value="ttlset"/>
+        <field8 value="ttlset64.exe"/>
+        <field9 value="Copyright (C), 2021"/>
+        <field10 value="Outsidepro arts"/>
+        <field13 value="denis.outsidepro@gmail.com"/>
+        <field14 value="https://github.com/outsidepro-arts/"/>
+        <field15 value="VOS_NT"/>
+        <field16 value="VFT_APP"/>
+      </versioninfo>
+      <constants>
+        <constant value="#Proj_Version" enable="1"/>
+      </constants>
+    </target>
+  </section>
+</project>
