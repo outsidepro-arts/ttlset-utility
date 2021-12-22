@@ -73,6 +73,10 @@ EndIf
 ProcedureReturn Registry::DeleteValue(#HKEY_LOCAL_MACHINE, "SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters", "DefaultTTL")
 EndProcedure
 
+Procedure RestartComputer()
+RunProgram("shutdown.exe", "-r -t 0", #Null$, #PB_Program_Hide)
+EndProcedure
+
 Global WindowForm = OpenWindow(#PB_Any, 0, 0, 640, 480, "TTL set utility V1."+#PB_Editor_BuildCount, #PB_Window_TitleBar|#PB_Window_Normal|#PB_Window_ScreenCentered)
 TextGadget(#PB_Any, 20, 20, 110, 10, "TTL presets:")
 Global ttlPresets_Combo = ComboBoxGadget(#PB_Any, 121, 20, 300, 20)
@@ -160,22 +164,41 @@ Else
 MessageRequester("Ping error", "Couldn't retrieve the TTL value from ping results.", #PB_MessageRequester_Error)
 EndIf
 Case Set_Button
+SomethingApplied.a = #False
 If GetGadgetState(IP4TTL_Checkbox) = #True
-If Not SetCurrentIP4TTL(GetGadgetText(IP4TTL_Edit))
+IPSet.a = SetCurrentIP4TTL(GetGadgetText(IP4TTL_Edit))
+If IPSet
+SomethingApplied = IPSet
+Else
 MessageRequester("Set IP TTL error", "Couldn't set new TTL value for IP V4.", #PB_MessageRequester_Error)
 EndIf
 Else
-If Not SetCurrentIP4TTL(#Null$)
+IPSet.a = SetCurrentIP4TTL(#Null$)
+If IPSet
+SomethingApplied = IPSet
+Else
 MessageRequester("Set IP TTL error", "Couldn't nullify the TTL value for IP V4.", #PB_MessageRequester_Error)
 EndIf
 EndIf
 If GetGadgetState(IP6TTL_Checkbox) = #True
-If  Not SetCurrentIP6TTL(GetGadgetText(IP6TTL_Edit))
+IPSet.a = SetCurrentIP6TTL(GetGadgetText(IP6TTL_Edit))
+If  IPSet
+SomethingApplied = IPSet
+Else
 MessageRequester("Set IP TTL error", "Couldn't set new TTL value for IP V6.", #PB_MessageRequester_Error)
 EndIf
 Else
-If Not SetCurrentIP6TTL(#Null$)
+IPSet.a = SetCurrentIP6TTL(#Null$)
+If IPSet
+SomethingApplied = IPSet
+Else
 MessageRequester("Set IP TTL error", "Couldn't nullify the TTL value for IP V6.", #PB_MessageRequester_Error)
+EndIf
+EndIf
+If SomethingApplied
+If MessageRequester("Reboot system", "You need to reboot your system to changes been applied. Do you wish to reboot the system right now?", #MB_ICONQUESTION|#PB_MessageRequester_YesNo) = #PB_MessageRequester_Yes
+RestartComputer()
+Break
 EndIf
 EndIf
 PostEvent(#CUSTOM_EVENT_ReadValues)

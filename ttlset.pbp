@@ -7,7 +7,7 @@
   <section name="data">
     <explorer view="..\..\..\PB\" pattern="0"/>
     <log show="1"/>
-    <lastopen date="2021-12-20 01:59" user="denis" host="OUTSIDEPRO-PC"/>
+    <lastopen date="2021-12-22 12:35" user="denis" host="OUTSIDEPRO-PC"/>
   </section>
   <section name="files">
     <file name="modules\Registry Module.pb">
@@ -16,7 +16,7 @@
     </file>
     <file name="sources\ttlset.pb">
       <config load="1" scan="1" panel="1" warn="1" lastopen="1" panelstate="++"/>
-      <fingerprint md5="55d0f326d2847e7ade5261dc2b8a0b72"/>
+      <fingerprint md5="ec92a3457d1eb42d5f4ad7defd46064d"/>
     </file>
   </section>
   <section name="targets">
@@ -24,9 +24,9 @@
       <inputfile value="sources\ttlset.pb"/>
       <outputfile value="bin\ttlset32.exe"/>
       <compiler version="PureBasic 5.71 LTS (Windows - x86)"/>
-      <executable value="ttlset32.exe"/>
+      <executable value="bin\ttlset32.exe"/>
       <options xpskin="1" admin="1" debug="1"/>
-      <buildcount enable="1" value="3"/>
+      <buildcount enable="1" value="5"/>
       <versioninfo enable="1">
         <field0 value="1,%BUILDCOUNT,0,0"/>
         <field1 value="1,%BUILDCOUNT,0,0"/>
@@ -52,9 +52,9 @@
       <inputfile value="sources\ttlset.pb"/>
       <outputfile value="bin\ttlset64.exe"/>
       <compiler version="PureBasic 5.71 LTS (Windows - x64)"/>
-      <executable value="ttlset64.exe"/>
+      <executable value="bin\ttlset64.exe"/>
       <options xpskin="1" admin="1"/>
-      <buildcount enable="1" value="3"/>
+      <buildcount enable="1" value="5"/>
       <versioninfo enable="1">
         <field0 value="1,%BUILDCOUNT,0,0"/>
         <field1 value="1,%BUILDCOUNT,0,0"/>
